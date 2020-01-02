@@ -1,8 +1,6 @@
 const $addInput = $('#addInput')
 const $todoListDom = $('#todolist')
 const $donelistDom= $('#donelist')
-const todoList = []
-const doneList = []
 const defaultState = {
     todoList: [],
     doneList: [],
