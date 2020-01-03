@@ -74,11 +74,15 @@ $donelistDom.on('click', '.donelist-item', function () {
 })
 const renderTodoList = () => {
     const todoListItemsDom = store.getState().todoList.map(item => `<li class="todolist-item">${item}<i class="del">x</i></li>`).join('')
-    $todoListDom.html(todoListItemsDom)
+    if ($todoListDom.html !== todoListItemsDom) {
+        $todoListDom.html(todoListItemsDom)
+    }
 }
 const renderDoneList = () => {
     const DoneListItemsDom = store.getState().doneList.map(item => `<li class="donelist-item">${item}</li>`).join('')
-    $donelistDom.html(DoneListItemsDom)
+    if ($donelistDom.html() !== DoneListItemsDom) {
+        $donelistDom.html(DoneListItemsDom)
+    }
 }
 store.subscribe(renderTodoList)
 store.subscribe(renderDoneList)
